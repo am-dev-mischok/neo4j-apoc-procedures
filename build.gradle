@@ -66,7 +66,8 @@ subprojects {
         archiveClassifier = 'javadoc'
     }
     test {
-        //exclude '**/CypherProceduresClusterTest.class'//, '**/AtomicTest.class'
+        // todo - restore
+        // include '**/CypherProceduresTest.class', '**/CypherEnterpriseExtendedTest.class'
 
         // neo4jDockerImage system property is used in TestContainerUtil
         systemProperties 'user.language' : 'en' ,
@@ -78,7 +79,7 @@ subprojects {
 
         maxHeapSize = "5G"
         forkEvery = 50
-        maxParallelForks = 1
+        maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
         minHeapSize = "128m"
 
         // This would apply only to TeamCity
@@ -134,5 +135,5 @@ ext {
     neo4jVersion = "5.17.0"
     // instead we apply the override logic here
     neo4jVersionEffective = project.hasProperty("neo4jVersionOverride") ? project.getProperty("neo4jVersionOverride") : neo4jVersion
-    testContainersVersion = '1.18.3'
+    testContainersVersion = '1.19.1'
 }
