@@ -66,8 +66,7 @@ subprojects {
         archiveClassifier = 'javadoc'
     }
     test {
-        // todo - restore
-        // include '**/CypherProceduresTest.class', '**/CypherEnterpriseExtendedTest.class'
+        //exclude '**/CypherProceduresClusterTest.class'//, '**/AtomicTest.class'
 
         // neo4jDockerImage system property is used in TestContainerUtil
         systemProperties 'user.language' : 'en' ,
