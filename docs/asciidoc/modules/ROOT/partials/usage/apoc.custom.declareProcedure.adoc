@@ -2,7 +2,7 @@ Here is a simple example:
 
 [source,cypher]
 ----
-CALL apoc.custom.declareProcedure('answerInteger() :: (row::INT)', 'RETURN 42 as answer')
+CALL apoc.custom.declareProcedure('answerInteger() :: (answer::INT)', 'RETURN 42 as answer')
 ----
 
 This registers the statement as procedure `custom.answer` that you then can call.
